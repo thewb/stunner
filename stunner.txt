@@ -1,0 +1,29 @@
+* Write new class for scapy to describe a STUN Binding Request Response packet
+
+
+
+* Write code to compute MESSAGE-INTEGRITY HMAC 
+
+Omegle uses short-term STUN credentials:
+
+STUN usernames:
+
+near      -> far 
+1+FW:ly/A	 ly/A:1+FW
+
+user:pass	 user:pass
+
+key = SASLPrep(password)
+
+https://passlib.readthedocs.io/en/stable/lib/passlib.utils.html#passlib.utils.saslprep
+
+passlib.utils.saslprep(source, param='value')
+
+MESSAGE-INTEGRITY = SHA1-HMAC(key, STUN_message_up_to_MESSAGE-INTEGRITY)
+
+* Write code to compute FINGERPRINT attribute
+
+FINGERPRINT =  XOR(0x5354554e, CRC-32(STUN_message_up_to_FINGERPRINT))
+
+* Use dummy CRC before creating MESSAGE-INTEGRITY, then compute the CRC because
+the CRC is done over the MESSAGE-INTEGRITY attribute.
