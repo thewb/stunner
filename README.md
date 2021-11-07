@@ -3,7 +3,7 @@ Tools to work with STUN protocol.
 
 * ```omegle_locate.py```
 Used to get a WebRTC peer's IP from STUN Binding Success Response(s) and look that IP up in a GeoIP database.
-Can be used to show location of an Omegle, Chatroulette, Facebook video, etc. user. It is generic and works 
+Can be used to show location of an Omegle, Chatroulette, Facebook video, FaceTime, etc. user. It is generic and works 
 for any WebRTC or video chat that binds media to peers, and uses the STUN protocol to traverse NAT networks.
 It uses raw sockets via Scapy so it requires root or sudo.
 
